@@ -11,7 +11,7 @@ import Dashboard from './components/dashboard.jsx';
 import Student from './components/student.jsx';
 import Courses from './components/courses.jsx';
 import Add_student from './components/add_student.jsx';
-import Add_courses from './components/add-courses.jsx';
+import Add_courses from './components/add_courses.jsx';
 
 
 const browserRouter = createBrowserRouter(

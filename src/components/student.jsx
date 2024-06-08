@@ -5,7 +5,7 @@ export default function student() {
       <div className="flex justify-content-space-between">
         <h1 className="text-2xl font-black p-7">Students</h1>
         <button className="bg-green-400 rounded-md m-3 p-1 text-lg font-medium"><Link to="/add_student">
-          ++ Add student</Link></button>
+          + Add student</Link></button>
         
       </div>
 
