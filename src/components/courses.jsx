@@ -6,7 +6,7 @@ export default function courses() {
   const location = useLocation();
     const data = location.state;
     useEffect(() => {
-      // Check if data and data.data exist and if data.data is an array
+      // Check if data and data.data exist  and if data.data is an array
       if (data && Array.isArray(data)) {
         setTable_Data(data);
       }
@@ -17,7 +17,7 @@ export default function courses() {
     <>
       <h1 className="text-2xl font-black p-7"> All Courses</h1>
 
-      <button className="flex justify-start bg-green-400 rounded-md m-3 p-1 text-lg font-medium">
+      <button className="flex justify-start place-end-2 bg-green-400 rounded-md m-3 p-1 text-lg font-medium">
         <Link to="/add_courses">+ Add new course</Link>
       </button>
 
@@ -26,13 +26,19 @@ export default function courses() {
           <th>course_name</th>
           <th>course_duration</th>
           <th>course_price</th>
+          <th>Action</th>
         </tr>
         <tbody>
           {table_Data.map((item,index)=>(
           <tr key={index}>
             <td>{item?.course_name || ''}</td>
             <td>{item?.course_duration || ''}</td>
-            <td>{item?.course_price || ''}</td>
+            <td>{item?.course_price || ''}
+            </td>
+            <td className="flex justify-center gap-4">{item?.action || ''}
+               <button className="w-20 h-10 border-2 border-black bg-orange-200 rounded-2xl">edit</button>
+              <button className="w-20 h-10 border-2 border-black bg-red-400 rounded-2xl">delete</button>
+            </td>
           </tr>
           ))}
         </tbody>
