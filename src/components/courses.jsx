@@ -12,9 +12,16 @@ export default function courses() {
       }
     }, [data]);
 
+    const deleteHandler = e =>{
+      e.preventDefault();
+      alert("row deleted ")
+      print()
+      
+  }
+  
 
   return (
-    <>
+    <div className="bg-gray-200">
       <h1 className="text-2xl font-black p-7"> All Courses</h1>
 
       <button className="flex justify-start place-end-2 bg-green-400 rounded-md m-3 p-1 text-lg font-medium">
@@ -23,21 +30,24 @@ export default function courses() {
 
       <table className="w-full h-full gap-1 p-7 border-4 border-gray">
         <tr className=" divide-x divide-y pt-4 bg-gray-400">
+         
           <th>course_name</th>
-          <th>course_duration</th>
           <th>course_price</th>
+          <th>course_duration</th>
           <th>Action</th>
         </tr>
         <tbody>
           {table_Data.map((item,index)=>(
-          <tr key={index}>
+          <tr key={index} className="border-2 border-black bg-blue-100">
+            
             <td>{item?.course_name || ''}</td>
+            <td>{item?.course_price || ''}</td>
             <td>{item?.course_duration || ''}</td>
-            <td>{item?.course_price || ''}
-            </td>
             <td className="flex justify-center gap-4">{item?.action || ''}
-               <button className="w-20 h-10 border-2 border-black bg-orange-200 rounded-2xl">edit</button>
-              <button className="w-20 h-10 border-2 border-black bg-red-400 rounded-2xl">delete</button>
+               <button className="w-20 h-10 border-1 border-black bg-orange-200 rounded-2xl">Edit</button>
+              <button className="w-20 h-10 border-1 border-black bg-red-400 rounded-2xl"onChange={deleteHandler}>
+                Delete
+                </button>
             </td>
           </tr>
           ))}
@@ -45,6 +55,6 @@ export default function courses() {
 
         
       </table>
-    </>
+    </div>
   )
 }

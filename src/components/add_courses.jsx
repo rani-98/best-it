@@ -11,12 +11,14 @@ export default function add_courses() {
 
     const changeHandler = e =>{
         setData({...data,[e.target.name] : e.target.value})
+        console.log(setData )
     }
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(data); // Log data before navigating
         navigate('/courses', { state: [data]  }); // Pass data in the state object
     };
+
     
 
 
@@ -26,8 +28,8 @@ export default function add_courses() {
         <center>
             <form onSubmit={submitHandler} className="flex flex-col gap-4 m-6 text-lg font-medium"> 
                  
-                    <able>course name : 
-                    <input type="text" name="course_name" value={course_name} onChange={changeHandler}/></able>
+                    <label>course name : 
+                    <input type="text" name="course_name" value={course_name} onChange={changeHandler}/></label>
                     
                     <label>course price : 
                     <input type="text" name="course_price" value={course_price} onChange={changeHandler}/></label>

@@ -1,10 +1,10 @@
 
 function dashboard(){
     return(
-        <>
+        <div className="bg-gray-100">
         <h1 className="text-2xl font-bold p-10">Dashboard</h1>
         <div class="flex w-full h-full p-20 justify-items-center cursor-pointer gap-14">
-          <button class="w-30 h-30 border-solid border-4 border-gray-300 hover:bg-gray-200 p-6 font-bold rounded-lg">
+          <button class="w-30 h-30 border-solid border-4 border-gray-300 bg-white rounded-xl hover:bg-gray-200 p-7 font-bold">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -21,7 +21,7 @@ function dashboard(){
             </svg>
             Students
           </button>
-          <button class="w-30 h-30 border-solid border-4 border-gray-300 hover:bg-gray-200 p-6 font-bold rounded-lg">
+          <button class="w-30 h-30 border-solid border-4 border-gray-300 bg-white rounded-xl hover:bg-gray-200 p-8 font-bold">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -39,7 +39,7 @@ function dashboard(){
             Courses
           </button>
         
-        </div></>
+        </div></div>
     )
 }
 export default dashboard
