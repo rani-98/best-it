@@ -31,10 +31,10 @@ export default function App() {
         alt="best it"
       ></img>
 
-      <div class="flex justify-items-between gap-7 p-6 cursor-pointer">
+      <div className="flex justify-items-between gap-7 p-6 cursor-pointer">
         <nav>
-          <ul class="flex flex-col font-bold text-bold p-10 gap-7 bg-gray-100">
-            <li className={currentPage === "dashboard"? pageStyle : pointer} onClick={dashboardClick}><Link to="/dashboard">
+          <ul className="flex flex-col font-bold text-bold p-10 gap-7 bg-gray-100">
+            <li className={currentPage === "dashboard"? pageStyle : pointer} onClick={dashboardClick}> <Link to="/dashboard">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

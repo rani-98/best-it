@@ -46,8 +46,9 @@ export default function student() {
             <td>{item?.email || ''}</td>
             <td>{item?.location || ''}</td>
             <td>{item?.course || ''}</td>
+            <td>{item?.action || ''}</td>
             
-            <td className="flex justify-center gap-4"{item?.action || ''}>
+            <td className="flex justify-center gap-4">
                <button className="w-20 h-10 border-1 border-black bg-orange-200 rounded-2xl">Edit</button>
                <button className="w-20 h-10 border-1 border-black bg-red-400 rounded-2xl"onChange={deleteHandler}>
                   Delete
