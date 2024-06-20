@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Route, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
 export default function AddCourses() {
     const [data, setData] = useState({
@@ -19,7 +19,7 @@ export default function AddCourses() {
         e.preventDefault();
         console.log(data); 
         
-        fetch('http://localhost:5000/add_courses', {
+        fetch('http://localhost:5000/add_course', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,15 +43,33 @@ export default function AddCourses() {
                 <form onSubmit={submitHandler} className="flex flex-col gap-4 m-6 text-lg font-medium">
                     <label>
                         Course Name:
-                        <input type="text" name="course_name" value={course_name} onChange={changeHandler} />
+                        <input 
+                            type="text" 
+                            id="course_name" 
+                            name="course_name"
+                            value={course_name} 
+                            onChange={changeHandler} 
+                        />
                     </label>
                     <label>
                         Course Price:
-                        <input type="text" name="course_price" value={course_price} onChange={changeHandler} />
+                        <input 
+                            type="text" 
+                            id="course_price" 
+                            name="course_price"
+                            value={course_price} 
+                            onChange={changeHandler} 
+                        />
                     </label>
                     <label>
                         Course Duration:
-                        <input type="number" name="course_duration" value={course_duration} onChange={changeHandler} />
+                        <input 
+                            type="number" 
+                            id="course_duration" 
+                            name="course_duration"
+                            value={course_duration} 
+                            onChange={changeHandler} 
+                        />
                     </label>
                     <input className="w-20 h-10 rounded-md bg-green-400" type="submit" name="submit" />
                 </form>
@@ -59,5 +77,3 @@ export default function AddCourses() {
         </div>
     );
 }
-
-
