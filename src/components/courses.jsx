@@ -65,7 +65,7 @@ function Courses() {
               <td >{item.course_name || ''}</td>
               <td>{item.course_price || ''}</td>
               <td >{item.course_duration || ''}</td>
-              <td className=" gap-4">
+              <td className=" flex gap-3">
                 <button className="w-20 h-10 border-1 border-black bg-orange-200 rounded-2xl">Edit</button>
                 <button
                   className="w-20 h-10 border-1 border-black bg-red-400 rounded-2xl"

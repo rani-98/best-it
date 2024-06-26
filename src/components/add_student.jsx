@@ -1,48 +1,70 @@
-import React, { useState } from "react"
-import ReactDOM from 'react-dom/client'
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function add_student() {
-    const[data,setData] = useState({})
+export default function AddStudent() {
+    const [data, setData] = useState({
+        student_name: '',
+        mobile: '',
+        email: '',
+        location: '',
+        course_name: '',
+    });
 
-    const {Student_name,mobile_no,email,location,course} = data;
-    const navigate=useNavigate()
+    const { student_name, mobile, email, location, course_name } = data;
+    const navigate = useNavigate();
 
-    const changeHandler = e =>{
-        setData({...data,[e.target.name] : e.target.value})
-        console.log(setData )
+    const changeHandler = e => {
+        setData({ ...data, [e.target.name]: e.target.value });
+    };
 
-
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         console.log(data); // Log data before navigating
-         navigate('/student', { state: [data]  }); // Pass data in the state object
+
+        try {
+            const response = await fetch('http://localhost:5000/add_student', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Success:', result);
+                navigate('/student');
+            } else {
+                const errorData = await response.json();
+                console.error('Error:', errorData);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
-    return(
-        
-        <div className="p-5 bg-gray-300">
-        <h1 className="text-2xl font-black p-7">add student details</h1>
 
-        <form onSubmit={submitHandler}className="flex flex-col gap-4"> 
-                    <label>Student Name : 
-                    <input type="text" name="student_name" value={Student_name} onChange={changeHandler}/></label>
-                    <label>Mobile No. :
-                    <input type="number" name="mobile_no" value={mobile_no} onChange={changeHandler}/></label>
-                    <label>Email Id  :
-                    <input type="email" name="email" value={email} onChange={changeHandler}/></label>
-                    <label>Location : 
-                    <input type="text" name="location" value={location} onChange={changeHandler}/></label>
-                    <label>course   :
-                    <input type="text" name="course" value={course} onChange={changeHandler}/></label>
-                    
-        </form>
-        <button className="bg-green-400 p-1 m-4 rounded-md">Submit</button>
+    return (
+        <div className=" flex flex-col  p-5 bg-gray-300">
+            <h1 className="text-2xl font-black p-7">Add Student Details</h1>
+            <form onSubmit={submitHandler} className="flex flex-col p-20 gap-4">
+                <label>Student Name:
+                    <input type="text" name="student_name" value={student_name} onChange={changeHandler} />
+                </label>
+                <label>Mobile No.:
+                    <input type="number" name="mobile" value={mobile} onChange={changeHandler} />
+                </label>
+                <label>Email Id:
+                    <input type="email" name="email" value={email} onChange={changeHandler} />
+                </label>
+                <label>Location:
+                    <input type="text" name="location" value={location} onChange={changeHandler} />
+                </label>
+                <label>Course Name:
+                    <input type="text" name="course_name" value={course_name} onChange={changeHandler} />
+                </label>
+                <input className="w-20 h-10 rounded-md bg-green-400" type="submit" name="submit" />
 
-
-        
+                
+            </form>
         </div>
-    )
+    );
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(add_student)}

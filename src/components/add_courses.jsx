@@ -5,7 +5,7 @@ export default function AddCourses() {
     const [data, setData] = useState({
         course_name: '',
         course_price: '',
-        course_duration: ''
+        course_duration: '' 
     });
 
     const { course_name, course_price, course_duration } = data;
