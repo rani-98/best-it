@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Dashboard from "./dashboard";
 
 export default function Student() {
   const [tableData, setTableData] = useState([]);
@@ -54,6 +55,7 @@ export default function Student() {
       <table className="w-full h-full gap-1 p-7 border-4 border-gray">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Student Name</th>
             <th>Mobile No</th>
             <th>Email</th>
@@ -65,6 +67,7 @@ export default function Student() {
         <tbody>
           {tableData.map((item, index) => (
             <tr key={index} className="border-2 border-black bg-blue-100">
+              <td>{item.id}</td>
               <td>{item.student_name}</td>
               <td>{item.mobile}</td>
               <td>{item.email}</td>
@@ -80,6 +83,7 @@ export default function Student() {
           ))}
         </tbody>
       </table>
+      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 }

@@ -53,6 +53,7 @@ function Courses() {
       <table className="w-full gap-1 border-4 border-gray-300">
         <thead>
           <tr className="bg-gray-400">
+            <th>Id</th>
             <th>Course Name</th>
             <th>Course Price</th>
             <th>Course Duration</th>
@@ -62,6 +63,7 @@ function Courses() {
         <tbody>
           {tableData.map((item) => (
             <tr key={item.id} className="border-2 border-black bg-blue-100 ">
+              <td >{item.id || ''}</td>
               <td >{item.course_name || ''}</td>
               <td>{item.course_price || ''}</td>
               <td >{item.course_duration || ''}</td>
