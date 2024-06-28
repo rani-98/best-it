@@ -66,6 +66,10 @@ def delete_course(rid):
     global courses
     courses = [course for course in courses if course["id"] != rid]
     return jsonify({"message": "course deleted successfully"})
+@app.route("/course_count", methods=["GET"])
+def get_course_count():
+    return jsonify({"count": len(courses)})
+
 
 students = [
     {
@@ -135,6 +139,10 @@ def delete_student(rid):
     global students
     students = [student for student in students if student["id"] != rid]
     return jsonify({"message": "student deleted successfully"})
+
+@app.route("/student_count", methods=["GET"])
+def get_student_count():
+    return jsonify({"count": len(students)})
 
 if __name__ == "__main__":
     app.run(debug=True)
