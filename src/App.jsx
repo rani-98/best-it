@@ -8,8 +8,8 @@ export default function App() {
   const pageStyle = "cursor-pointer border-b-4 border-indigo-300";
   const pointer = "cursor-pointer";
 
-  function handleClick(page) {
-    setCurrentPage(page);
+  function handleClick(dashboard) {
+    setCurrentPage(dashboard);
   }
   const dashboardClick = () => {
     handleClick("Dashboard");
