@@ -14,7 +14,6 @@ import Add_student from './components/add_student.jsx';
 import Add_courses from './components/add_courses.jsx';
 import Auth from './routes/auth.jsx';
 import Signup from './components/signup.jsx';
-import Otp from './components/otp.jsx';
 
 
 const browserRouter = createBrowserRouter(
@@ -58,10 +57,7 @@ const browserRouter = createBrowserRouter(
           path: "signup",
           element: <Signup />
         },
-        {
-          path: "otp",
-          element: <Otp />
-        }
+      
       ]
 
     }
